@@ -6,3 +6,80 @@ dark-blue - #134d71;
 white - #ffffff;
 black - #000000;
 */
+
+* {
+  font-family: 'Quicksand', sans-serif;
+  }
+
+html {
+   height: 100%;
+ display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+body {
+    background: linear-gradient(#134d71, #78a7c6, #f7e4bf);
+    color: #ffffff;
+    min-height: 100%;
+  }
+
+h1,
+h2,
+div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.boxes {
+  color: #000000;
+  background: #ffffff;
+  margin: 2px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-direction: column;
+  border-radius: 10px;
+}
+
+.radio-buttons-div {
+  display: flex;
+  place-content: space-around space-evenly;
+  justify-content: space-between;
+  justify-items: center;
+
+}
+
+#engagement {
+  width: 466px;
+  height: 84px;
+}
+
+#display {
+  width: 691px;
+  height: 129px;
+}
+
+#affirmation,
+#mantra {
+   font-style: italic;
+   margin: .6rem;
+}
+
+.generate {
+  color: #ffffff;
+  background: #134d71;
+  border-radius: 5px;
+  width: 161px;
+  height: 24px;
+}
+
+#meditate-img {
+  width: 58px;
+  height: 72px;
+}
+
+.hidden {
+  display: none!important;
+}
