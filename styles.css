@@ -79,3 +79,7 @@ div {
   width: 58px;
   height: 72px;
 }
+
+.hidden {
+  display: none!important;
+}
