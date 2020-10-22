@@ -1,8 +1,15 @@
+var mainPage = document.querySelector('.main-page');
 var affirmationRadioButton = document.querySelector('#aff');
 var mantraRadioButton = document.querySelector('#man');
 var generateButton = document.querySelector('#generate-button');
 var meditateImage = document.querySelector('img');
 var message = document.querySelector('#chosen-message');
+var pageTitle = document.querySelector('.personalized-welcome');
+var briefWelcome = document.querySelector('.short-welcome')
+
+var welcomePage = document.querySelector('.welcome-page');
+var loginInput = document.querySelector('.name');
+var loginButton = document.querySelector('.enter');
 
 var mantras = [
   "Breathing in, I send myself love. Breathing out, I send love to someone else who needs it.",
@@ -39,19 +46,18 @@ var affirmations = [
 ];
 
 generateButton.addEventListener('click', chooseTypeOfSaying);
+loginButton.addEventListener('click', openMainPage);
 
 function generateRandomArrayIndex(array) {
   return Math.floor(Math.random() * array.length)
 }
 
 function chooseTypeOfSaying() {
-  //if aff radio button call choose aff function
-  if(affirmationRadioButton.value) {
+  if(affirmationRadioButton.checked) {
     chooseAffirmation();
-  } else if(mantraRadioButton.value) {
+  } else if(mantraRadioButton.checked) {
     chooseMantra();
   }
-  //if mantra radio button call choose man function
   //else return error or alert "Please select a type of message."
 }
 
@@ -71,6 +77,19 @@ function displayText(typeOfSaying) {
   meditateImage.classList.add("hidden");
   message.classList.remove("hidden");
   message.innerText = typeOfSaying;
-  // input the typeOfSaying parameter into the inner HTML of the second div
-  // hide the image
 }
+
+function openMainPage() {
+  var userName = loginInput.value;
+  mainPage.classList.remove("hidden");
+  welcomePage.classList.add("hidden");
+  personalizeWelcome(userName);
+}
+
+function personalizeWelcome(userName) {
+  pageTitle.innerHTML = `✨ ${userName}'s Self Care Center ✨`;
+  briefWelcome.innerHTML = `Welcome, ${userName}. <br> Stay a while.`
+}
+
+//button
+//add whatever mantra is displayed to a favorites array
