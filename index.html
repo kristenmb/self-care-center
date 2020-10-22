@@ -8,15 +8,22 @@
     <h1>✨Self Care Center ✨</h1>
     <h2>Which type of message?</h2>
     <div>
-        <input type="radio" id="affirmation" value="">
-          <label>affirmation</label>
-        <input type="radio" id="mantra" value="">
-          <label>mantra</label>
-        <button>Receive Message</button>
+      <div class="boxes" id="engagement">
+        <div class="radio-buttons-div">
+          <input name="choice" type="radio" class="radio-buttons" value="affirmation" id="aff">
+          <label id="affirmation">affirmation</label>
+          <input name="choice" type="radio" class="radio-buttons" value="mantra" id="man">
+          <label id="mantra">mantra</label>
+        </div>
+      <div id="button-div">
+        <button class="generate" id="generate-button">Receive Message</button>
+      </div>
     </div>
-    <div class="display">
-      <img src="assets/meditate.svg" id="meditate-img">
-    </div>
-    <script type="text/javascript" src="main.js"></script>
+  </div>
+  <div class="boxes" id="display">
+    <p class="hidden" id="chosen-message"></p>
+    <img src="assets/meditate.svg" class="" id="meditate-img">
+  </div>
+  <script type="text/javascript" src="main.js"></script>
   </body>
 </html>
