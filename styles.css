@@ -32,23 +32,40 @@ div {
   align-items: center;
 }
 
+.spacing {
+  height: 80px
+}
+
+
+/* h2 {
+  align-items: flex-end;
+} */
+
 .boxes {
   color: #000000;
   background: #ffffff;
   margin: 2px;
   display: flex;
   justify-content: space-around;
-  align-items: center;
+  /* align-items: center; */
   flex-direction: column;
   border-radius: 10px;
 }
 
-.radio-buttons-div {
-  display: flex;
-  place-content: space-around space-evenly;
-  justify-content: space-between;
-  justify-items: center;
+label {
+  position: relative;
+  padding-left: 10px;
+  margin-right: 120px;
 
+  /* display: flex;
+  /* place-content: space-around space-evenly;
+  justify-content: space-between;
+  justify-items: center; */
+
+}
+
+#mantra-label {
+  margin: 0;
 }
 
 #engagement {
@@ -66,6 +83,14 @@ div {
    font-style: italic;
    margin: .6rem;
 }
+
+/* #aff {
+  justify-content: flex-start;
+}
+
+#man {
+  justify-content: flex-end;
+} */
 
 .generate {
   color: #ffffff;
