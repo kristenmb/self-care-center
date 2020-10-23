@@ -7,12 +7,23 @@ var message = document.querySelector('#chosen-message');
 var pageTitle = document.querySelector('.personalized-welcome');
 var briefWelcome = document.querySelector('.short-welcome')
 
+var viewAllButton = document.querySelector('#see-all');
+
 var welcomePage = document.querySelector('.welcome-page');
 var loginInput = document.querySelector('.name');
 var loginButton = document.querySelector('.enter');
 
+var allMessagesPage = document.querySelector('.all-messages')
+var allMantras = document.querySelector('#all-mans');
+var allAffirmations = document.querySelector('#all-affs');
+var allFavorties = document.querySelector('#all-favs');
+var newAffirmationInput = document.querySelector('#new-aff');
+var addAffrimationButton = document.querySelector('#add-aff');
+var newMantraInput = document.querySelector('#new-mantra');
+var addMantraButton = document.querySelector('#add-man');
+var backToMainButton = document.querySelector('#back-to-main');
+
 var mantras = [
-  "Breathing in, I send myself love. Breathing out, I send love to someone else who needs it.",
   "Don’t let yesterday take up too much of today.",
   "Every day is a second chance.",
   "Tell the truth and love everyone.",
@@ -45,8 +56,14 @@ var affirmations = [
   "I manifest perfect health by making smart choices."
 ];
 
+var favorites = ['example1','example2','example3'];
+
 generateButton.addEventListener('click', chooseTypeOfSaying);
 loginButton.addEventListener('click', openMainPage);
+viewAllButton.addEventListener('click', openAllMessages);
+addAffrimationButton.addEventListener('click', addNewAffirmation);
+addMantraButton.addEventListener('click', addNewMantra);
+backToMainButton.addEventListener('click', backToMain);
 
 function generateRandomArrayIndex(array) {
   return Math.floor(Math.random() * array.length)
@@ -76,6 +93,7 @@ function chooseAffirmation() {
 function displayText(typeOfSaying) {
   meditateImage.classList.add("hidden");
   message.classList.remove("hidden");
+  viewAllButton.classList.remove("hidden");
   message.innerText = typeOfSaying;
 }
 
@@ -91,5 +109,66 @@ function personalizeWelcome(userName) {
   briefWelcome.innerHTML = `Welcome, ${userName}. <br> Stay a while.`
 }
 
+function openAllMessages() {
+  mainPage.classList.add("hidden");
+  allMessagesPage.classList.remove("hidden");
+  displayAllMessages();
+}
+
+function displayAllMessages() {
+  allAffirmations.innerHTML = '<h3 class="all-page-headers">Affirmations</h3>';
+  allMantras.innerHTML = '<h3 class="all-page-headers">Mantras</h3>';
+  allFavorties.innerHTML = '<h3 class="all-page-headers">Favorites</h3>';
+  displayAllAffirmations();
+  displayAllMantras();
+  displayAllFavorites();
+}
+
+
+function displayAllAffirmations() {
+  for(var i = 0; i < affirmations.length; i++) {
+    allAffirmations.innerHTML += `
+      <div class="all-paras">
+        <p>${affirmations[i]}</p>
+        <div id="close"></div>
+      </div>`
+  };
+
+}
+
+function displayAllMantras() {
+  for(var i = 0; i < mantras.length; i++) {
+    allMantras.innerHTML += `
+      <div class="all-paras">
+        <p>${mantras[i]}</p>
+      </div>`
+  };
+}
+
+function displayAllFavorites() {
+  for(var i = 0; i < favorites.length; i++) {
+    allFavorties.innerHTML += `
+      <div class="all-paras">
+        <p>${favorites[i]}</p>
+      </div>`
+  };
+};
+
+function addNewAffirmation() {
+  var newAff = newAffirmationInput.value;
+  affirmations.push(newAff);
+  displayAllMessages();
+}
+
+function addNewMantra() {
+  var newMan = newMantraInput.value;
+  mantras.push(newMan);
+  displayAllMessages();
+}
+
+function backToMain() {
+  mainPage.classList.remove("hidden");
+  allMessagesPage.classList.add("hidden");
+}
 //button
 //add whatever mantra is displayed to a favorites array
