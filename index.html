@@ -23,7 +23,7 @@
               <label for="mantra" id="mantra-label">mantra</label>
             </div>
             <div id="button-div">
-              <button class="generate" id="generate-button">Receive Message</button>
+              <button class="buttons generate" id="generate-button">Receive Message</button>
             </div>
           </div>
         </div>
@@ -32,20 +32,47 @@
       <article>
         <div class="boxes" id="display">
           <p class="hidden" id="chosen-message"></p>
+          <button class="buttons hidden" id="see-all">View All</button>
           <img src="assets/meditate.svg" class="" id="meditate-img">
         </div>
       </article>
 </section>
 <section class="welcome-page">
   <div class="login">
-    <h1 id="welcome">Welcome <br> to the <br> Self Care Center</h1>
+    <h1 id="welcome">✨✨✨<br> Welcome <br> to the <br> Self Care Center</h1>
     <div id="login-input">
-    <input class="name" placeholder="Your Name">
-     <div id="login-button">
-    <button class="enter">enter</button>
+      <input class="name" placeholder="Your Name">
     </div>
+    <div id="login-button">
+      <button class="enter buttons">enter</button>
     </div>
   </div>
+</section>
+<section class="all-messages hidden">
+  <article class="columns">
+  <div class="message-boxes" id="all-affs">
+  </div>
+  <div class="all-paras">
+    <input class="all-paras" id="new-aff" placeholder="Add your own affirmation!">
+    <button class="buttons all-paras" id="add-aff">Add</button>
+  </div>
+</article>
+<div></div>
+<article class="columns">
+  <div class="message-boxes" id="all-mans">
+  </div>
+  <div class="all-paras">
+    <input class="all-paras" id="new-mantra" placeholder="Add your own mantra!">
+    <button class="buttons all-paras" id="add-man">Add</button>
+  </div>
+</article>
+<article class="columns">
+  <div class="message-boxes" id="all-favs">
+  </div>
+  <div class="message-boxes">
+    <button class="buttons" id="back-to-main">Back to Main</button>
+  </div>
+</article>
 </section>
   <script type="text/javascript" src="main.js"></script>
   </body>
