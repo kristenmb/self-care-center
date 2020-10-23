@@ -5,7 +5,9 @@
 
 ## Usage
   When the page loads, enter your name to access the Self Care Center. On the main page, you will view options for the type of message you want to receive.
-  Pick either affirmation or mantra, press the "Receive Message" button and a message in the style of your choice will be revealed. Continue to create randomized messages in that style, or switch to the other style.
+  Pick either affirmation or mantra, press the "Receive Message" button and a message in the style of your choice will be revealed. Continue to create randomized messages in that style, or switch to the other style. <br>
+
+  If you would like to view all the messages, click the "View All" button, which will take you to a new page displaying all affirmations, mantras, and any favorited messages. Here you will be able to add your own messages, or return to the main page. 
 
 <!-- ![link](create giphy) -->
 
