@@ -8,6 +8,7 @@ var pageTitle = document.querySelector('.personalized-welcome');
 var briefWelcome = document.querySelector('.short-welcome')
 
 var viewAllButton = document.querySelector('#see-all');
+var favoriteButton = document.querySelector('#favorite-item');
 
 var welcomePage = document.querySelector('.welcome-page');
 var loginInput = document.querySelector('.name');
@@ -22,6 +23,7 @@ var addAffrimationButton = document.querySelector('#add-aff');
 var newMantraInput = document.querySelector('#new-mantra');
 var addMantraButton = document.querySelector('#add-man');
 var backToMainButton = document.querySelector('#back-to-main');
+var editButton = document.querySelector('#edit-delete');
 
 var mantras = [
   "Don’t let yesterday take up too much of today.",
@@ -56,14 +58,16 @@ var affirmations = [
   "I manifest perfect health by making smart choices."
 ];
 
-var favorites = ['example1','example2','example3'];
+var favorites = [];
 
 generateButton.addEventListener('click', chooseTypeOfSaying);
 loginButton.addEventListener('click', openMainPage);
 viewAllButton.addEventListener('click', openAllMessages);
+favoriteButton.addEventListener('click', addToFavorites);
 addAffrimationButton.addEventListener('click', addNewAffirmation);
 addMantraButton.addEventListener('click', addNewMantra);
 backToMainButton.addEventListener('click', backToMain);
+
 
 function generateRandomArrayIndex(array) {
   return Math.floor(Math.random() * array.length)
@@ -94,7 +98,14 @@ function displayText(typeOfSaying) {
   meditateImage.classList.add("hidden");
   message.classList.remove("hidden");
   viewAllButton.classList.remove("hidden");
+  favoriteButton.classList.remove("hidden");
   message.innerText = typeOfSaying;
+}
+
+function addToFavorites() {
+  if(!favorites.includes(message.innerText)) {
+    favorites.unshift(message.innerText);
+  }
 }
 
 function openMainPage() {
@@ -130,10 +141,8 @@ function displayAllAffirmations() {
     allAffirmations.innerHTML += `
       <div class="all-paras">
         <p>${affirmations[i]}</p>
-        <div id="close"></div>
       </div>`
   };
-
 }
 
 function displayAllMantras() {
@@ -170,5 +179,16 @@ function backToMain() {
   mainPage.classList.remove("hidden");
   allMessagesPage.classList.add("hidden");
 }
-//button
-//add whatever mantra is displayed to a favorites array
+
+function openMessageEditor() {
+
+}
+//FAVORITING
+// star button
+// add whatever mantra is displayed to a favorites array
+// fill favorites column on all messages page
+
+// EDITING messages
+// edit button opens a modal pop up with a form and save button
+// also a nevermind button
+// form input saved in place of old saying.
