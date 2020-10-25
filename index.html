@@ -8,7 +8,6 @@
   <body>
     <section class="main-page hidden">
       <h1 class="personalized-welcome">✨ Self Care Center ✨</h1>
-
       <div class="spacing">
         <p class="short-welcome"></p>
       </div>
@@ -30,16 +29,20 @@
       </article>
       <div class="spacing"></div>
       <article>
-        <div class="boxes" id="display">
+        <div class="boxes" id="display-text">
           <p class="hidden" id="chosen-message"></p>
+          <div class="button-display">
+          <button class="buttons hidden" id="favorite-item">Favorite</button>
           <button class="buttons hidden" id="see-all">View All</button>
+            </div>
           <img src="assets/meditate.svg" class="" id="meditate-img">
         </div>
       </article>
 </section>
 <section class="welcome-page">
+<div class="spacing"></div>
   <div class="login">
-    <h1 id="welcome">✨✨✨<br> Welcome <br> to the <br> Self Care Center</h1>
+    <h1 id="welcome">✨✨✨<br><br> Welcome <br> to the <br> Self Care Center</h1>
     <div id="login-input">
       <input class="name" placeholder="Your Name">
     </div>
@@ -54,23 +57,29 @@
   </div>
   <div class="all-paras">
     <input class="all-paras" id="new-aff" placeholder="Add your own affirmation!">
-    <button class="buttons all-paras" id="add-aff">Add</button>
+    <button class="buttons all-paras" id="add-aff">add</button>
+  </div>
+  <div class="all-paras">
+    <button class="buttons all-paras" id="edit-affs">edit affirmations</button>
   </div>
 </article>
-<div></div>
 <article class="columns">
   <div class="message-boxes" id="all-mans">
   </div>
   <div class="all-paras">
     <input class="all-paras" id="new-mantra" placeholder="Add your own mantra!">
-    <button class="buttons all-paras" id="add-man">Add</button>
+    <button class="buttons all-paras" id="add-man">add</button>
+  </div>
+  <div class="all-paras">
+    <button class="buttons all-paras" id="edit-man">edit mantras</button>
   </div>
 </article>
 <article class="columns">
   <div class="message-boxes" id="all-favs">
   </div>
-  <div class="message-boxes">
-    <button class="buttons" id="back-to-main">Back to Main</button>
+  <div class="columns" id="favs-column">
+    <button class="buttons all-paras" id="edit-favs">edit favorites</button>
+    <button class="buttons all-paras" id="back-to-main">back to main</button>
   </div>
 </article>
 </section>
