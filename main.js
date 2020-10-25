@@ -13,6 +13,7 @@ var favoriteButton = document.querySelector('#favorite-item');
 var welcomePage = document.querySelector('.welcome-page');
 var loginInput = document.querySelector('.name');
 var loginButton = document.querySelector('.enter');
+var userNameError = document.querySelector('.error-message')
 
 var allMessagesPage = document.querySelector('.all-messages')
 var allMantras = document.querySelector('#all-mans');
@@ -36,7 +37,6 @@ var mantras = [
   "I am present now.",
   "Inhale the future, exhale the past.",
   "This too shall pass.",
-  "Yesterday is not today.",
   "The only constant is change.",
   "Onward and upward.",
   "I am the sky, the rest is weather."
@@ -110,9 +110,13 @@ function addToFavorites() {
 
 function openMainPage() {
   var userName = loginInput.value;
+  if(userName === "") {
+    userNameError.innerText = "Please enter your name";
+  } else {
   mainPage.classList.remove("hidden");
   welcomePage.classList.add("hidden");
   personalizeWelcome(userName);
+  }
 }
 
 function personalizeWelcome(userName) {
