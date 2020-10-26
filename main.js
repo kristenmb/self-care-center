@@ -5,7 +5,8 @@ var generateButton = document.querySelector('#generate-button');
 var meditateImage = document.querySelector('img');
 var message = document.querySelector('#chosen-message');
 var pageTitle = document.querySelector('.personalized-welcome');
-var briefWelcome = document.querySelector('.short-welcome')
+var briefWelcome = document.querySelector('.short-welcome');
+var messageChoiceError = document.querySelector('.choice-error');
 
 var viewAllButton = document.querySelector('#see-all');
 var favoriteButton = document.querySelector('#favorite-item');
@@ -13,6 +14,7 @@ var favoriteButton = document.querySelector('#favorite-item');
 var welcomePage = document.querySelector('.welcome-page');
 var loginInput = document.querySelector('.name');
 var loginButton = document.querySelector('.enter');
+var userNameError = document.querySelector('.error-message')
 
 var allMessagesPage = document.querySelector('.all-messages')
 var allMantras = document.querySelector('#all-mans');
@@ -36,7 +38,6 @@ var mantras = [
   "I am present now.",
   "Inhale the future, exhale the past.",
   "This too shall pass.",
-  "Yesterday is not today.",
   "The only constant is change.",
   "Onward and upward.",
   "I am the sky, the rest is weather."
@@ -78,19 +79,20 @@ function chooseTypeOfSaying() {
     chooseAffirmation();
   } else if(mantraRadioButton.checked) {
     chooseMantra();
+  } else {
+    messageChoiceError.innerText = "Please select a type of message."
   }
-  //else return error or alert "Please select a type of message."
 }
 
 function chooseMantra() {
  var randomMantra = mantras[generateRandomArrayIndex(mantras)];
+ messageChoiceError.innerText = "";
  displayText(randomMantra);
  }
-//pull randomMantra out of array to prevent duplicates
-//if statement - if mantras is empty .....?
 
 function chooseAffirmation() {
   var randomAffirmation = affirmations[generateRandomArrayIndex(affirmations)];
+  messageChoiceError.innerText = "";
   displayText(randomAffirmation);
 }
 
@@ -110,9 +112,13 @@ function addToFavorites() {
 
 function openMainPage() {
   var userName = loginInput.value;
+  if(userName === "") {
+    userNameError.innerText = "Please enter your name";
+  } else {
   mainPage.classList.remove("hidden");
   welcomePage.classList.add("hidden");
   personalizeWelcome(userName);
+  }
 }
 
 function personalizeWelcome(userName) {
@@ -165,14 +171,22 @@ function displayAllFavorites() {
 
 function addNewAffirmation() {
   var newAff = newAffirmationInput.value;
+  if(newAff === '' || affirmations.includes(newAff)) {
+    newAffirmationInput.placeholder = 'Please add a new affirmation'
+  } else {
   affirmations.push(newAff);
   displayAllMessages();
+  }
 }
 
 function addNewMantra() {
   var newMan = newMantraInput.value;
+  if(newMan === '' || mantras.includes(newMan)) {
+    newMantraInput.placeholder = 'Please add a new mantra'
+  } else {
   mantras.push(newMan);
   displayAllMessages();
+  }
 }
 
 function backToMain() {
@@ -180,15 +194,14 @@ function backToMain() {
   allMessagesPage.classList.add("hidden");
 }
 
-function openMessageEditor() {
-
-}
-//FAVORITING
-// star button
-// add whatever mantra is displayed to a favorites array
-// fill favorites column on all messages page
-
-// EDITING messages
-// edit button opens a modal pop up with a form and save button
-// also a nevermind button
-// form input saved in place of old saying.
+// function openAffirmationEditor() {
+//
+// }
+//
+// function openMantraEditor() {
+//
+// }
+//
+// function openFavoritesEditor() {
+//
+// }
