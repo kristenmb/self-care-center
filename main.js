@@ -69,7 +69,7 @@ favoriteButton.addEventListener('click', addToFavorites);
 clearMessage.addEventListener('click', resetMessageDisplay);
 addAffrimationButton.addEventListener('click', addNewAffirmation);
 addMantraButton.addEventListener('click', addNewMantra);
-backToMainButton.addEventListener('click', backToMain);
+backToMainButton.addEventListener('click', returnToMain);
 
 function openMainPage() {
   var userName = loginInput.value;
@@ -195,7 +195,7 @@ function addNewMantra() {
   }
 }
 
-function backToMain() {
+function returnToMain() {
   mainPage.classList.remove("hidden");
   allMessagesPage.classList.add("hidden");
 }
