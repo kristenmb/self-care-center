@@ -4,13 +4,13 @@ var loginButton = document.querySelector('.enter');
 var userNameError = document.querySelector('.error-message')
 
 var mainPage = document.querySelector('.main-page');
+var pageTitle = document.querySelector('.personalized-welcome');
+var briefWelcome = document.querySelector('.short-welcome');
 var affirmationRadioButton = document.querySelector('#aff');
 var mantraRadioButton = document.querySelector('#man');
 var generateButton = document.querySelector('#generate-button');
 var meditateImage = document.querySelector('img');
-var message = document.querySelector('#chosen-message');
-var pageTitle = document.querySelector('.personalized-welcome');
-var briefWelcome = document.querySelector('.short-welcome');
+var messageDisplay = document.querySelector('#chosen-message');
 var messageChoiceError = document.querySelector('.choice-error');
 
 var viewAllButton = document.querySelector('#see-all');
@@ -27,7 +27,6 @@ var addAffrimationButton = document.querySelector('#add-aff');
 var newMantraInput = document.querySelector('#new-mantra');
 var addMantraButton = document.querySelector('#add-man');
 var backToMainButton = document.querySelector('#back-to-main');
-
 
 var mantras = [
   "Don’t let yesterday take up too much of today.",
@@ -116,20 +115,20 @@ function chooseMantra() {
 
 function displayText(typeOfSaying) {
   meditateImage.classList.add("hidden");
-  message.classList.remove("hidden");
+  messageDisplay.classList.remove("hidden");
   buttonDisplay.classList.remove("hidden");
-  message.innerText = typeOfSaying;
+  messageDisplay.innerText = typeOfSaying;
 }
 
 function resetMessageDisplay() {
   buttonDisplay.classList.add("hidden");
   meditateImage.classList.remove("hidden");
-  message.classList.add("hidden");
+  messageDisplay.classList.add("hidden");
 }
 
 function addToFavorites() {
-  if(!favorites.includes(message.innerText)) {
-    favorites.unshift(message.innerText);
+  if(!favorites.includes(messageDisplay.innerText)) {
+    favorites.unshift(messageDisplay.innerText);
   }
 }
 
