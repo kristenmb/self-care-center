@@ -1,3 +1,8 @@
+var welcomePage = document.querySelector('.welcome-page');
+var loginInput = document.querySelector('.name');
+var loginButton = document.querySelector('.enter');
+var userNameError = document.querySelector('.error-message')
+
 var mainPage = document.querySelector('.main-page');
 var affirmationRadioButton = document.querySelector('#aff');
 var mantraRadioButton = document.querySelector('#man');
@@ -11,11 +16,7 @@ var messageChoiceError = document.querySelector('.choice-error');
 var viewAllButton = document.querySelector('#see-all');
 var favoriteButton = document.querySelector('#favorite-item');
 var clearMessage = document.querySelector('#clear-message');
-
-var welcomePage = document.querySelector('.welcome-page');
-var loginInput = document.querySelector('.name');
-var loginButton = document.querySelector('.enter');
-var userNameError = document.querySelector('.error-message')
+var buttonDisplay = document.querySelector('.button-display');
 
 var allMessagesPage = document.querySelector('.all-messages')
 var allMantras = document.querySelector('#all-mans');
@@ -61,65 +62,15 @@ var affirmations = [
 ];
 
 var favorites = [];
-var currentSaying;
 
-generateButton.addEventListener('click', chooseTypeOfSaying);
 loginButton.addEventListener('click', openMainPage);
+generateButton.addEventListener('click', chooseTypeOfSaying);
 viewAllButton.addEventListener('click', openAllMessages);
 favoriteButton.addEventListener('click', addToFavorites);
+clearMessage.addEventListener('click', resetMessageDisplay);
 addAffrimationButton.addEventListener('click', addNewAffirmation);
 addMantraButton.addEventListener('click', addNewMantra);
 backToMainButton.addEventListener('click', backToMain);
-clearMessage.addEventListener('click', resetMessageDisplay);
-
-function generateRandomArrayIndex(array) {
-  return Math.floor(Math.random() * array.length)
-}
-
-function chooseTypeOfSaying() {
-  if(affirmationRadioButton.checked) {
-    chooseAffirmation();
-  } else if(mantraRadioButton.checked) {
-    chooseMantra();
-  } else {
-    messageChoiceError.innerText = "Please select a type of message."
-  }
-}
-
-function chooseMantra() {
- var randomMantra = mantras[generateRandomArrayIndex(mantras)];
- messageChoiceError.innerText = "";
- displayText(randomMantra);
- }
-
-function chooseAffirmation() {
-  var randomAffirmation = affirmations[generateRandomArrayIndex(affirmations)];
-  messageChoiceError.innerText = "";
-  displayText(randomAffirmation);
-}
-
-function displayText(typeOfSaying) {
-  meditateImage.classList.add("hidden");
-  message.classList.remove("hidden");
-  viewAllButton.classList.remove("hidden");
-  favoriteButton.classList.remove("hidden");
-  clearMessage.classList.remove("hidden");
-  message.innerText = typeOfSaying;
-}
-
-function resetMessageDisplay() {
-  clearMessage.classList.add("hidden");
-  viewAllButton.classList.add("hidden");
-  favoriteButton.classList.add("hidden");
-  meditateImage.classList.remove("hidden");
-  message.classList.add("hidden");
-}
-
-function addToFavorites() {
-  if(!favorites.includes(message.innerText)) {
-    favorites.unshift(message.innerText);
-  }
-}
 
 function openMainPage() {
   var userName = loginInput.value;
@@ -135,6 +86,51 @@ function openMainPage() {
 function personalizeWelcome(userName) {
   pageTitle.innerHTML = `✨ ${userName}'s Self Care Center ✨`;
   briefWelcome.innerHTML = `Welcome, ${userName}. <br> Stay a while.`
+}
+
+function chooseTypeOfSaying() {
+  if(affirmationRadioButton.checked) {
+    chooseAffirmation();
+  } else if(mantraRadioButton.checked) {
+    chooseMantra();
+  } else {
+    messageChoiceError.innerText = "Please select a type of message."
+  }
+}
+
+function generateRandomArrayIndex(array) {
+  return Math.floor(Math.random() * array.length)
+}
+
+function chooseAffirmation() {
+  var randomAffirmation = affirmations[generateRandomArrayIndex(affirmations)];
+  messageChoiceError.innerText = "";
+  displayText(randomAffirmation);
+}
+
+function chooseMantra() {
+ var randomMantra = mantras[generateRandomArrayIndex(mantras)];
+ messageChoiceError.innerText = "";
+ displayText(randomMantra);
+ }
+
+function displayText(typeOfSaying) {
+  meditateImage.classList.add("hidden");
+  message.classList.remove("hidden");
+  buttonDisplay.classList.remove("hidden");
+  message.innerText = typeOfSaying;
+}
+
+function resetMessageDisplay() {
+  buttonDisplay.classList.add("hidden");
+  meditateImage.classList.remove("hidden");
+  message.classList.add("hidden");
+}
+
+function addToFavorites() {
+  if(!favorites.includes(message.innerText)) {
+    favorites.unshift(message.innerText);
+  }
 }
 
 function openAllMessages() {
@@ -205,18 +201,5 @@ function backToMain() {
   allMessagesPage.classList.add("hidden");
 }
 
-// EDIT/DELETE IDEAS
-// function openAffirmationEditor() {
-//
-//}// event bubbling -- target column, if affirmations[i] = selected p pop new page with editor
-
-// open new page each affiration displayed with button attached which will remove it from the array.sa
-
-
-// function openMantraEditor() {
-//
-// }
-//
-// function openFavoritesEditor() {
-//
-// }
+// EDIT/DELETE MESSAGES - brainstorm
+// event bubbling -- target articles with column class in DOM, if affirmations[i] = selected saying, open new page with input feild - placeholder set as the selected saying, "update" button saves the new input in place of the old selected saying and repopulates in the All messages page, closing the editor.
