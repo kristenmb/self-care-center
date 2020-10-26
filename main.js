@@ -10,6 +10,7 @@ var messageChoiceError = document.querySelector('.choice-error');
 
 var viewAllButton = document.querySelector('#see-all');
 var favoriteButton = document.querySelector('#favorite-item');
+var clearMessage = document.querySelector('#clear-message');
 
 var welcomePage = document.querySelector('.welcome-page');
 var loginInput = document.querySelector('.name');
@@ -25,7 +26,7 @@ var addAffrimationButton = document.querySelector('#add-aff');
 var newMantraInput = document.querySelector('#new-mantra');
 var addMantraButton = document.querySelector('#add-man');
 var backToMainButton = document.querySelector('#back-to-main');
-var editButton = document.querySelector('#edit-delete');
+
 
 var mantras = [
   "Don’t let yesterday take up too much of today.",
@@ -60,6 +61,7 @@ var affirmations = [
 ];
 
 var favorites = [];
+var currentSaying;
 
 generateButton.addEventListener('click', chooseTypeOfSaying);
 loginButton.addEventListener('click', openMainPage);
@@ -68,7 +70,7 @@ favoriteButton.addEventListener('click', addToFavorites);
 addAffrimationButton.addEventListener('click', addNewAffirmation);
 addMantraButton.addEventListener('click', addNewMantra);
 backToMainButton.addEventListener('click', backToMain);
-
+clearMessage.addEventListener('click', resetMessageDisplay);
 
 function generateRandomArrayIndex(array) {
   return Math.floor(Math.random() * array.length)
@@ -101,7 +103,16 @@ function displayText(typeOfSaying) {
   message.classList.remove("hidden");
   viewAllButton.classList.remove("hidden");
   favoriteButton.classList.remove("hidden");
+  clearMessage.classList.remove("hidden");
   message.innerText = typeOfSaying;
+}
+
+function resetMessageDisplay() {
+  clearMessage.classList.add("hidden");
+  viewAllButton.classList.add("hidden");
+  favoriteButton.classList.add("hidden");
+  meditateImage.classList.remove("hidden");
+  message.classList.add("hidden");
 }
 
 function addToFavorites() {
@@ -146,7 +157,7 @@ function displayAllAffirmations() {
   for(var i = 0; i < affirmations.length; i++) {
     allAffirmations.innerHTML += `
       <div class="all-paras">
-        <p>${affirmations[i]}</p>
+        <p class="edit-affs" id="${[i]}">${affirmations[i]}</p>
       </div>`
   };
 }
@@ -194,10 +205,13 @@ function backToMain() {
   allMessagesPage.classList.add("hidden");
 }
 
+
 // function openAffirmationEditor() {
 //
-// }
-//
+//}
+// open new page each affiration displayed with button attached which will remove it from the array.sa
+
+
 // function openMantraEditor() {
 //
 // }

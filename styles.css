@@ -90,9 +90,10 @@ label {
 }
 
 .button-display {
+  width: 45%;
   display: flex;
-  flex-flow: row nowrap;
-  justify-content: space-evenly;
+  /* flex-flow: row nowrap; */
+  justify-content: space-between;
 }
 
 #meditate-img {
@@ -132,15 +133,13 @@ label {
 }
 
 .all-messages {
-  border: 3px solid yellow;
   min-height: 100%;
-  width: 100%;
+  min-width: 100%;
   display: flex;
-  justify-content: space-evenly;
-  align-items: center;
+  justify-content: center;
+  align-items: baseline;
   flex-direction: row;
   border-radius: 10px;
-  text-align: left;
 }
 
 .columns {
