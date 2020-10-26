@@ -133,14 +133,13 @@ label {
 }
 
 .all-messages {
-  height: 100%;
-  width: 100%;
+  min-height: 100%;
+  min-width: 100%;
   display: flex;
-  justify-content: space-evenly;
-  align-items: center;
+  justify-content: center;
+  align-items: baseline;
   flex-direction: row;
   border-radius: 10px;
-  text-align: left;
 }
 
 .columns {
