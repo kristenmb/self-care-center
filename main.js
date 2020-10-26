@@ -157,7 +157,7 @@ function displayAllAffirmations() {
   for(var i = 0; i < affirmations.length; i++) {
     allAffirmations.innerHTML += `
       <div class="all-paras">
-        <p class="edit-affs" id="${[i]}">${affirmations[i]}</p>
+        <p class="edit-affs">${affirmations[i]}</p>
       </div>`
   };
 }
@@ -205,10 +205,11 @@ function backToMain() {
   allMessagesPage.classList.add("hidden");
 }
 
-
+// EDIT/DELETE IDEAS
 // function openAffirmationEditor() {
 //
-//}
+//}// event bubbling -- target column, if affirmations[i] = selected p pop new page with editor
+
 // open new page each affiration displayed with button attached which will remove it from the array.sa
 
 
